@@ -1,0 +1,9 @@
+<div *ngIf="!cobranzaFormControl.valid && cobranzaFormControl.dirty">
+    <span *ngIf="cobranzaFormControl.errors.required" class="help-block">Campo requerido</span>
+    <span *ngIf="cobranzaFormControl.errors.minlength" class="help-block">Tamaño minimo es de : {{cobranzaFormControl.errors.minlength.requiredLength}}</span>
+    <span *ngIf="cobranzaFormControl.errors.maxlength" class="help-block">Tamaño maximo es de : {{cobranzaFormControl.errors.maxlength.requiredLength}}</span>
+    <span *ngIf="cobranzaFormControl.errors.pattern" class="help-block">Valor no valido</span>
+    <ng-content>
+  
+    </ng-content>
+  </div>

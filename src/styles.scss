@@ -1,0 +1,140 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  padding-top: 60px;
+  margin-bottom: 60px; 
+  }
+  .pfng-isc-ex-container {
+        padding-bottom: 20px;
+      }
+      .pfng-isc-ex-container h5 {
+    border-bottom: 1px dashed #1e7baa;
+    padding-bottom: 16px;
+  }
+  .pfng-wizard-single-step {
+    margin-left: 0;
+  }
+  
+  .wizard-pf-row {
+    height: inherit;
+  }
+  .cobro-menu-right {
+    left: auto !important;
+  }
+  
+  .cobro-button {
+    cursor: pointer;
+  }
+  
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 10%;
+    float: right;
+    height: 60px;
+    line-height: 60px; 
+  }
+  
+  a {
+    color: #0088ce;
+    text-decoration: none ;
+    cursor: pointer;
+}
+
+ngb-typeahead-window .dropdown-item {
+  display: block;
+  padding: .25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  width: 100%;
+}
+
+.dropdown-menu{
+  min-width: 93.3% !important;
+}
+
+
+ngb-typeahead-window .dropdown-item.active,
+.dropdown-item:active {
+  text-decoration: none;
+  background-color: #1E90FF !important;
+  border-color: #bee1f4 !important;
+  color: #ffffff;
+  border-style: solid;
+  border-width: 1px 0;   
+}
+
+/* 
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  ngb-typeahead-window {
+      width: calc(100% - 56.2%) !important;
+  }
+}
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  ngb-typeahead-window {
+      width: calc(100% - 61.4%) !important;
+  }
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  ngb-typeahead-window {
+      width: calc(100% - 66%)  !important;
+  }
+}
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  ngb-typeahead-window {
+      width: calc(100% - 66%)  !important;
+  }
+}
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  ngb-typeahead-window {
+      width: 100% !important;
+  }
+}
+
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  ngb-typeahead-window {
+      width: 100% !important;
+  }
+}

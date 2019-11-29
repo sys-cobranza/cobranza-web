@@ -1,0 +1,69 @@
+<div class="padding-1">
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>Creacion de usuarios</h4>
+      <hr />
+    </div>
+  </div>
+
+  <div class="cards-pf pfng-isc-ex-container">
+    <div class="container-fluid pfng-fluid-width-container">
+      <div class="col-sm-6">
+        <form [formGroup]="form" (ngSubmit)="save(form)">
+          <cobro-form-fields-status [cobranzaForm]="form"></cobro-form-fields-status>
+
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('nombreCompleto')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('nombreCompleto')">Nombres Completos
+              <i class="fa fa-question-circle text-muted" tooltip="Nombres Completos" placement="top"></i>
+            </label>
+            <div class="col-md-9">
+              <input formControlName="nombreCompleto" type="text" class="form-control" [ngbTypeahead]="search"
+                [resultTemplate]="rt" [inputFormatter]="formatter" (selectItem)="selectedItem($event,form)"               
+                #ngbPeronas="ngbTypeahead" placeholder="buscar persona..." />
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('nombreCompleto')">
+              </cobro-form-field-validation-messages>
+            </div>
+            <ng-template #rt let-r="result" let-t="term">
+              {{ r.nombreCompleto}}
+            </ng-template>
+          </div>
+
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('userName')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('userName')">Usuario
+              <i class="fa fa-question-circle text-muted" tooltip="userName" placement="top"></i>
+            </label>
+            <div class="col-md-9">
+              <input formControlName="userName" type="text" class="form-control">
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('userName')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('password')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('password')">contraseña
+              <i class="fa fa-question-circle text-muted" tooltip="Alias" placement="top"></i>
+            </label>
+            <div class="col-md-9">
+              <input formControlName="password" type="password" class="form-control">
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('password')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('confirmPassword')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('confirmPassword')">Confirmar Contraseña
+              Password
+              <i class="fa fa-question-circle text-muted" tooltip="Alias" placement="top"></i>
+            </label>
+            <div class="col-md-9">
+              <input formControlName="confirmPassword" type="password" class="form-control">
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('confirmPassword')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <br>
+          <cobro-button-save [cobranzaForm]="form" [working]="working"></cobro-button-save>
+          <cobro-button-cancel (cobranzaOnCancel)="cancel()"></cobro-button-cancel>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

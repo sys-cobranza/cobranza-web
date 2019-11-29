@@ -1,0 +1,65 @@
+<ul class="nav navbar-nav navbar-right navbar-iconic">
+
+  <li class="dropdown applauncher-pf dropdown-kebab-pf applauncher-pf-block-list" dropdown>
+    <a class="dropdown-toggle nav-item-iconic" href="javascript:void(0);" dropdownToggle style="padding: 21px 12px;">
+      <span class="fa fa-th"></span>
+      <span class="caret"></span>
+    </a>
+    <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+      <li class="applauncher-pf-item">
+        <a class="applauncher-pf-link" routerLink="/">
+          <i class="applauncher-pf-link-icon pficon pficon-home"></i>
+          <span class="applauncher-pf-link-title">Inicio</span>
+        </a>
+      </li>
+      <li class="applauncher-pf-item">
+        <a class="applauncher-pf-link" href="javascript:void(0);" (click)="security()">
+          <i class="applauncher-pf-link-icon pficon pficon-cloud-security"></i>
+          <span class="applauncher-pf-link-title">Seguridad</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+  </li>
+  <!-- notifications menu -->
+  <li class="dropdown" dropdown>
+    <a class="dropdown-toggle nav-item-iconic" dropdownToggle>
+      <span title="Notifications" class="fa pficon-flag"></span>
+      <span class="badge" *ngIf="messageHistory.length > 0">{{messageHistory.length}}</span>
+    </a>
+    <div class="dropdown-menu infotip bottom-right app-menu-right" *dropdownMenu>
+      <div class="arrow"></div>
+      <div class="list-group-item">
+        <a class="app-button" (click)="clear();">
+          <span class="pficon-delete"></span> Limpiar Mensajes</a>
+      </div>
+      <ul class="list-group cobro-message" *ngIf="messageHistory.length > 0">
+        <li class="list-group-item" *ngFor="let item of messageHistory">
+          <span class="i pficon {{item.class}}"></span> {{item.msg}}
+        </li>
+      </ul>
+    </div>
+  </li>
+  <!-- user menu -->
+  <li class="dropdown" dropdown>
+    <a class="dropdown-toggle nav-item-iconic" dropdownToggle style="padding: 21px 12px;">
+      <span class="fa pficon-user"></span>
+      <span class="caret"></span>
+    </a>
+    <div class="dropdown-menu infotip bottom-right app-menu-right" *dropdownMenu>
+      <div class="arrow"></div>
+      <ul class="list-group">
+        <li class="list-group-item app-button">
+          <a href="javascript:void(0);" (click)="profile()">
+            <span class="fa pficon-user"></span> Perfil</a>
+        </li>
+        <li class="divider"></li>
+        <li class="list-group-item app-button">
+          <a href="javascript:void(0);" (click)="logout()">
+            <span class="fa pficon-on"></span> Cerrar Session</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
