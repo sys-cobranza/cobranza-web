@@ -1,0 +1,54 @@
+<div class="login-pf">
+    <cobro-notify-message></cobro-notify-message>
+  <span id="badge">
+    <img src="/assets/img/logo.png" alt="logo" />
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="brand">
+          <b>Ventas & Cobranzas </b>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4 login">
+        <form [formGroup]="form" (ngSubmit)="login(form)" class="form-horizontal">
+          <cobro-form-fields-status [cobranzaForm]="form"></cobro-form-fields-status>
+
+          <div class="form-group" [cobranzaFormFieldValidationState]="form.get('userName')">
+            <label class="col-sm-3 col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('userName')">Usuario
+              <i class="fa fa-question-circle text-muted" tooltip="Usuario del sistema" placement="top"></i>
+            </label>
+            <div class="col-sm-9 col-md-9">
+              <input formControlName="userName" type="text" class="form-control" autofocus />
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('userName')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <div class="form-group" [cobranzaFormFieldValidationState]="form.get('password')">
+            <label class="col-sm-3 col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('password')">Contraseña
+              <i class="fa fa-question-circle text-muted" tooltip="Contraseña del sistema" placement="top"></i>
+            </label>
+            <div class="col-sm-9 col-md-9">
+              <input formControlName="password" type="password" class="form-control" />
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('password')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-8 col-sm-offset-8 col-sm-6 col-md-offset-2 col-md-6">
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2"></div>
+            <div class="col-xs-1 col-sm- col-md-1">
+              <cobro-button-login [cobranzaForm]="form" [working]="working"></cobro-button-login>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-5 col-md-6 col-lg-7 details">
+        <p>
+          <strong>Bienvenido a Ventas y Cobranzas</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

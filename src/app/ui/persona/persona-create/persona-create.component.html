@@ -1,3 +1,73 @@
-<p>
-  persona-create works!
-</p>
+<div class="padding-1">
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>Creacion del cliente</h4>
+      <hr />
+    </div>
+  </div>
+
+  <div class="cards-pf pfng-isc-ex-container">
+    <div class="container-fluid pfng-fluid-width-container">
+      <div class="col-sm-6">
+        <form [formGroup]="form" (ngSubmit)="save(form)">
+          <cobro-form-fields-status [cobranzaForm]="form"></cobro-form-fields-status>
+
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('numeroDocumento')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('numeroDocumento')">Num.
+              Documento
+              <i class="fa fa-question-circle text-muted" tooltip="numeroDocumento" placement="top"></i>
+            </label>
+            <div class="col-md-9">
+              <input formControlName="numeroDocumento" type="text" class="form-control">
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('numeroDocumento')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('nombre')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('nombre')">Nombres
+              <i class="fa fa-question-circle text-muted" tooltip="Alias" placement="top"></i>
+            </label>
+            <div class="col-md-9">
+              <input formControlName="nombre" type="text" class="form-control">
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('nombre')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('apellidos')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('apellidos')">Apellidos
+              <i class="fa fa-question-circle text-muted" tooltip="Alias" placement="top"></i>
+            </label>
+            <div class="col-md-9">
+              <input formControlName="apellidos" type="text" class="form-control">
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('apellidos')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('numeroCelular')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('numeroCelular')">Celular
+              <i class="fa fa-question-circle text-muted" tooltip="Alias" placement="top"></i>
+            </label>
+            <div class="col-md-9">
+              <input formControlName="numeroCelular" type="text" class="form-control">
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('numeroCelular')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('direccion')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('direccion')">Direccion
+              <i class="fa fa-question-circle text-muted" tooltip="Alias" placement="top"></i>
+            </label>
+            <div class="col-md-9">
+              <input formControlName="direccion" type="text" class="form-control">
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('direccion')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <br>
+          <cobro-button-save [cobranzaForm]="form" [working]="working"></cobro-button-save>
+          <cobro-button-cancel (cobranzaOnCancel)="cancel()"></cobro-button-cancel>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

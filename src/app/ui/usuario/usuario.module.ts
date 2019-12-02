@@ -19,7 +19,7 @@ import { CoreModule } from 'src/app/core/core.module';
     SharedModule,
     CoreModule
   ],
-  declarations: [UsuarioListComponent, UsuarioCreateComponent, UsuarioEditComponent, UsuarioViewComponent],
+  declarations: [UsuarioListComponent, UsuarioCreateComponent, UsuarioEditComponent, UsuarioViewComponent ],
   exports: [UsuarioListComponent, UsuarioCreateComponent, UsuarioEditComponent, UsuarioViewComponent]
 })
 export class UsuarioModule { }

@@ -1,3 +1,88 @@
-<p>
-  cobranza-list works!
-</p>
+<div class="card-pf card-pf-accented">
+  <div class="card-pf-body">
+    <pfng-table [actionTemplate]="actionTemplate" [columns]="columns" [config]="tableConfig" [rows]="rows"
+      (onActionSelect)="handleAction($event)" (onFilterChange)="filterChanged($event)"
+      (onPageNumberChange)="handlePageNumber($event)" (onPageSizeChange)="handlePageSize($event)"
+      [expandRowTemplate]="expandRowTemplate" (onSortChange)="handleSortChanged($event)">
+    </pfng-table>
+    <!-- Column templates -->
+    <ng-template #documentoTemplate let-row="row">
+      <span>{{row.persona.numeroDocumento}}</span>
+    </ng-template>
+    <ng-template #clienteTemplate let-row="row">
+      <span>{{row.persona.nombre}} {{row.persona.apellidos}}</span>
+    </ng-template>
+    <ng-template #fechaVentaTemplate let-row="row">
+      <span>{{row.fecha | date: 'dd/MM/yyyy'}}</span>
+    </ng-template>
+    <!-- <ng-template #fechaCreacionTemplate let-row="row">
+      <span>{{row.fechaCreacion | date: 'dd/MM/yyyy'}}</span>
+    </ng-template> -->
+    <ng-template #montoVentaTemplate let-row="row">
+      <span>{{row.montoVenta | number:'1.2-3'}}</span>
+    </ng-template>
+    <ng-template #cuotaDiariaTemplate let-row="row">
+      <span>{{row.cuotaDiaria | number:'1.2-3'}}</span>
+    </ng-template>
+    <ng-template #usuarioCreacionTemplate let-row="row">
+      <span>{{row.usuario_crea.userName}}</span>
+    </ng-template>
+    <ng-template #descripcionTemplate let-row="row">
+      <span>{{row.descripcion}}</span>
+    </ng-template>
+    <ng-template #accionTemplate let-row="row">
+      <button type="button" class="btn btn-default" (click)="edit(row.id)">
+        <i class="fa fa-edit"></i> Modificar
+      </button>
+      &nbsp;
+      <button type="button" class="btn btn-danger" (click)="delete(row.id)">
+        <i class="fa fa-trash"></i> Eliminar
+      </button>
+    </ng-template>
+    <ng-template #actionTemplate>
+      <button type="button" class="btn btn-primary" (click)="vender()">
+        <i class="fa fa-plus"></i>&nbsp;Vender
+      </button>
+      &nbsp;
+      <button type="button" class="btn btn-info" (click)="cobrar()">
+        <i class="fa fa-plus"></i>&nbsp;Cobrar
+      </button>
+    </ng-template>
+    <!-- Row detail template -->
+    <ng-template #expandRowTemplate let-row="row">
+      <div class="row">
+        <div class="col-md-12">
+          <div>
+            <h3>Cobros Realizados</h3>
+          </div>
+          <div>
+            <div class="table-responsive">
+              <table class="datatable table table-striped table-bordered dataTable no-footer table-mobile">
+                <thead>
+                  <tr>
+                    <th class="text-right">#</th>
+                    <th class="col-md-2 text-left">Fecha Cobro</th>
+                    <th class="col-md-2">Fecha Creacion</th>
+                    <th class="col-md-1 text-right">Monto Cobrado</th>
+                    <th class="col-md-3 text-left">Usuario</th>
+                    <th class="col-md-4 text-left">Descripcion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let detalle of row.venta_detalle; let i = index;">
+                    <td class="text-right">{{i+1}}</td>
+                    <td class="text-left">{{detalle.fecha | date: 'dd/MM/yyyy'}} </td>
+                    <td class="text-left">{{detalle.fechaCreacion | date: 'dd/MM/yyyy'}} </td>
+                    <td class="text-right"> {{detalle.montoCobro | number:'1.2-3'}}</td>
+                    <td class="text-left"> {{detalle.usuario_crea.userName }}</td>
+                    <td class="text-left"> {{detalle.descripcion }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

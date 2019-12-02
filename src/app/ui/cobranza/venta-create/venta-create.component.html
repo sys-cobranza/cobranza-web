@@ -44,47 +44,32 @@
               {{ r.nombreCompleto}}
             </ng-template>
           </div>
-          <div class="row form-group">
-            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('ventaId')">
-              Deudas del cliente
-              <i class="fa fa-question-circle text-muted" tooltip="datos de la deuda" placement="top"></i>
-            </label>
-            <div class="col-md-9">
-              <pfng-table [columns]="columns" [config]="tableConfig" [rows]="rows"
-                (onSelectionChange)="onSelection($event)"> </pfng-table>
-              <ng-template #fechaTemplate let-row="row">
-                <span>{{row.venta_Fecha | date: 'dd/MM/yyyy'}}</span>
-              </ng-template>
-              <ng-template #totalVentaTemplate let-row="row">
-                <span>{{row.venta_MontoVenta | number:'1.2-3'}}</span>
-              </ng-template>
-              <ng-template #totalCobradoTemplate let-row="row">
-                <span>{{row.venta_MontoCobro  | number:'1.2-3'}}</span>
-              </ng-template>
-              <ng-template #totalDeudaTemplate let-row="row">
-                <span>{{(row.venta_MontoVenta - row.venta_MontoCobro)  | number:'1.2-3'}}</span>
-              </ng-template>
-              <ng-template #cuotaTemplate let-row="row">
-                <span>{{row.venta_CuotaDiaria  | number:'1.2-3'}}</span>
-              </ng-template>
-            </div>
-          </div>
-          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('montoCobro')">
-            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('montoCobro')">Monto a Cobrar
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('montoVenta')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('montoVenta')">Monto Venta
               <i class="fa fa-question-circle text-muted" tooltip="Alias" placement="top"></i>
             </label>
             <div class="col-md-9">
-              <input formControlName="montoCobro" type="number" class="form-control">
-              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('montoCobro')">
+              <input formControlName="montoVenta" type="number" class="form-control">
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('montoVenta')">
+              </cobro-form-field-validation-messages>
+            </div>
+          </div>
+          <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('cuotaDiaria')">
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('cuotaDiaria')">Cuota Diaria
+              <i class="fa fa-question-circle text-muted" tooltip="Alias" placement="top"></i>
+            </label>
+            <div class="col-md-9">
+              <input formControlName="cuotaDiaria" type="number" class="form-control">
+              <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('cuotaDiaria')">
               </cobro-form-field-validation-messages>
             </div>
           </div>
           <div class="row form-group" [cobranzaFormFieldValidationState]="form.get('descripcion')">
-            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('descripcion')">Descripcion
+            <label class="col-md-3 control-label" [cobranzaFormRequiredLabel]="form.get('descripcion')">Descripcion              
               <i class="fa fa-question-circle text-muted" tooltip="Alias" placement="top"></i>
             </label>
             <div class="col-md-9">
-              <textarea formControlName="descripcion" rows="5" class="form-control"></textarea>
+              <textarea formControlName="descripcion" rows="5"  class="form-control"></textarea>
               <cobro-form-field-validation-messages [cobranzaFormControl]="form.get('descripcion')">
               </cobro-form-field-validation-messages>
             </div>

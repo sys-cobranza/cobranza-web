@@ -19,10 +19,7 @@ export class DashboardListComponent implements OnInit {
   constructor(public route: ActivatedRoute, private data: DataService) {
   }
 
-  ngOnInit() {
-    this.data.usuarios().getAll().subscribe(d => {
-      console.log(d);
-    })
+  ngOnInit() { 
   }
 
 

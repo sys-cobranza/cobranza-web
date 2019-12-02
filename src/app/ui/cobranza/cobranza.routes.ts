@@ -1,3 +1,4 @@
+import { VentaCreateComponent } from './venta-create/venta-create.component';
 import { CobranzaViewComponent } from './cobranza-view/cobranza-view.component';
 import { Routes } from "@angular/router";
 import { CobranzaListComponent } from "./cobranza-list/cobranza-list.component";
@@ -12,9 +13,14 @@ export const CobranzaRoutes: Routes = [
         data: { breadcrumbs: true, text: "Cobranza" }
     },
     {
-        path: "create",
+        path: "vender",
+        component: VentaCreateComponent,
+        data: { breadcrumbs: true, text: "Nueva Venta" }
+    },
+    {
+        path: "cobrar",
         component: CobranzaCreateComponent,
-        data: { breadcrumbs: true, text: "Nuevo Registro" }
+        data: { breadcrumbs: true, text: "Cobrar Deuda" }
     },
     {
         path: "view/:key",

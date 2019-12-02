@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { Routes } from '@angular/router';
 import { UiComponent } from './ui.component';
 import { AuthGuard } from '../core/guard/auth.guard';
@@ -6,7 +7,7 @@ export const UIRoutes: Routes = [
     {
         path: '',
         component: UiComponent,
-        //canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
         data: { breadcrumbs: true, text: 'Inicio' },
         children: [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,8 +18,8 @@ export const UIRoutes: Routes = [
             { path: 'usuario', loadChildren: '../ui/usuario/usuario.module#UsuarioModule', data: { breadcrumbs: true, text: 'Usuario' } }
         ]
     },
-    // {
-    //     path: 'login',
-    //     component: UserLoginComponent
-    // },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
 ];

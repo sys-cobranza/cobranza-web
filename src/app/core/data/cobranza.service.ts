@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiRestService } from './api-rest.service';
-const basePath = "cobranza";
+const basePath = "venta";
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +11,23 @@ export class CobranzaService {
   constructor(private api: ApiRestService) { }
 
   getAll(): Observable<any> {
-    return this.api.all(basePath).get();
-  }
-
-  getAllPageable(p: number, s: number): Observable<any> {
-    return this.api.all(basePath).all(`pageable?page=${p}&size=${s}`).get();
+    return this.api.all(basePath).all("all").get();
   }
 
   findById(id: number): Observable<any> {
     return this.api.one(basePath, id).get();
   }
 
-  create(data: any): Observable<any> {
-    return this.api.all(basePath).all("registrar").post(data);
+  venta(data: any): Observable<any> {
+    return this.api.all(basePath).all("save").post(data);
+  }
+
+  deuda(clienteId) {
+    return this.api.all(basePath).one("deuda", clienteId).get();
+  }
+
+  cobro(data: any): Observable<any> {
+    return this.api.all(basePath).all("cobro").all("save").post(data);
   }
 
   update(data: any): Observable<any> {

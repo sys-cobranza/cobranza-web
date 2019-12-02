@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BsDropdownModule, BsDatepickerModule, ModalModule } from 'ngx-bootstrap';
 import { FormFieldsStatusComponent } from './components/form-fields-status/form-fields-status.component';
 import { FormFieldValidationStateDirective } from './directives/form-field-validation-state.directive';
 import { FormRequiredLabelDirective } from './directives/form-required-label.directive';
@@ -20,7 +21,11 @@ import { SafeUrlPipe } from './pipe/safe-url.pipe';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    BsDropdownModule,
+    BsDatepickerModule,
+    ModalModule
   ],
   declarations: [
     FormFieldValidationStateDirective,
@@ -43,6 +48,10 @@ import { SafeUrlPipe } from './pipe/safe-url.pipe';
 
   ],
   exports: [
+    BsDropdownModule,
+    BsDatepickerModule,
+    ModalModule,
+
     FormFieldValidationStateDirective,
     FormRequiredLabelDirective,
 

@@ -14,16 +14,12 @@ export class PersonaService {
     return this.api.all(basePath).all("all").get();
   } 
 
-  getAllPageable(p: number, s: number): Observable<any> {
-    return this.api.all(basePath).all(`pageable?page=${p}&size=${s}`).get();
-  }
-
   findById(id: number): Observable<any> {
     return this.api.one(basePath, id).get();
   }
 
   create(data: any): Observable<any> {
-    return this.api.all(basePath).all("registrar").post(data);
+    return this.api.all(basePath).all("save").post(data);
   }
 
   update(data: any): Observable<any> {

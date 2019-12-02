@@ -1,3 +1,4 @@
+import { LoginModule } from './login/login.module';
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
@@ -15,7 +16,8 @@ import { ShellModule } from "../shell/shell.module";
     ReactiveFormsModule,
     RouterModule.forChild(UIRoutes),
     SharedModule,
-    ShellModule
+    ShellModule,
+    LoginModule
   ],
   declarations: [UiComponent],
   exports: [RouterModule]

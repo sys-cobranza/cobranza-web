@@ -11,11 +11,7 @@ export class ProductoService {
   constructor(private api: ApiRestService) { }
 
   getAll(): Observable<any> {
-    return this.api.all(basePath).get();
-  }
-
-  getAllPageable(p: number, s: number): Observable<any> {
-    return this.api.all(basePath).all(`pageable?page=${p}&size=${s}`).get();
+    return this.api.all(basePath).all("all").get();
   }
 
   findById(id: number): Observable<any> {
@@ -23,7 +19,7 @@ export class ProductoService {
   }
 
   create(data: any): Observable<any> {
-    return this.api.all(basePath).all("registrar").post(data);
+    return this.api.all(basePath).all("save").post(data);
   }
 
   update(data: any): Observable<any> {

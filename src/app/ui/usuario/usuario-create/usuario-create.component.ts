@@ -52,7 +52,6 @@ export class UsuarioCreateComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.focus$.subscribe((item) => {
       let focusItem$: Subject<string>
-      console.log(item);
       let i: number = parseInt(item);
       this.focusObservableList.some((focus, index) => {
         if (index === i) {
@@ -75,7 +74,6 @@ export class UsuarioCreateComponent implements OnInit, AfterViewInit {
       const clicksWithClosedPopup$ = inputClick$
         .pipe(filter((item) => {
           let ngbTypeHeader: NgbTypeahead;
-          console.log(item);
           let i: number = parseInt(item);
           this.ngbPersonas.some((value, index) => {
             if (i === index) {

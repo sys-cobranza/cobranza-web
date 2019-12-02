@@ -1,3 +1,42 @@
-<p>
-  persona-list works!
-</p>
+<div class="card-pf card-pf-accented">
+    <div class="card-pf-body">
+      <pfng-table [actionTemplate]="actionTemplate" [columns]="columns" [config]="tableConfig" [rows]="rows"
+        (onActionSelect)="handleAction($event)" (onFilterChange)="filterChanged($event)"
+        (onPageNumberChange)="handlePageNumber($event)" (onPageSizeChange)="handlePageSize($event)"
+        (onSortChange)="handleSortChanged($event)">
+      </pfng-table>
+      <!-- Column templates -->
+      <ng-template #documentoTemplate let-row="row">
+        <span>{{row.numeroDocumento}}</span>
+      </ng-template>
+      <ng-template #nombreTemplate let-row="row">
+        <span>{{row.nombre}}</span>
+      </ng-template>
+      <ng-template #apellidosTemplate let-row="row">
+        <span>{{row.apellidos}}</span>
+      </ng-template>
+      <ng-template #direccionTemplate let-row="row">
+        <span>{{row.direccion}}</span>
+      </ng-template>
+      <ng-template #celularTemplate let-row="row">
+        <span>{{row.numeroCelular}}</span>
+      </ng-template>
+      <ng-template #usuarioTemplate let-row="row">
+        <span>{{row.userName}}</span>
+      </ng-template>
+      <ng-template #accionTemplate let-row="row">
+        <button type="button" class="btn btn-default" (click)="edit(row.id)">
+          <i class="fa fa-edit"></i> Modificar
+        </button>
+        &nbsp;
+        <button type="button" class="btn btn-danger" (click)="delete(row.id)">
+          <i class="fa fa-trash"></i> Eliminar
+        </button>
+      </ng-template>
+      <ng-template #actionTemplate>
+        <button type="button" class="btn btn-primary" (click)="new()">
+          <i class="fa fa-plus"></i>&nbsp;Agregar cliente
+        </button>     
+      </ng-template>
+    </div>
+  </div>

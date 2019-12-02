@@ -14,7 +14,6 @@ export class UsuarioListComponent implements AfterViewInit, OnInit {
   @ViewChild('documentoTemplate') documentoTemplate: TemplateRef<any>;
   @ViewChild('nombreTemplate') nombreTemplate: TemplateRef<any>;
   @ViewChild('apellidosTemplate') apellidosTemplate: TemplateRef<any>;
-  @ViewChild('weekDayTemplate') weekDayTemplate: TemplateRef<any>;
   @ViewChild('direccionTemplate') direccionTemplate: TemplateRef<any>;
   @ViewChild('celularTemplate') celularTemplate: TemplateRef<any>;
   @ViewChild('usuarioTemplate') usuarioTemplate: TemplateRef<any>;
