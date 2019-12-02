@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageHistory } from '../../core/model/message-history';
 import { MessageService } from '../../core/data/message.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/core/data/data.service';
 
 @Component({
   selector: 'cobro-shell-header',
@@ -10,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ShellHeaderComponent implements OnInit {
   messageHistory: MessageHistory[];
-  constructor(public message: MessageService, private router: Router) { }
+  constructor(public message: MessageService, private data: DataService, private router: Router) { }
 
   ngOnInit() {
     this.messageHistory = this.message.getHistory();
@@ -20,11 +21,10 @@ export class ShellHeaderComponent implements OnInit {
   }
 
   logout() {
-    
+    this.data.usuarios().removeItem();
+    this.router.navigate(['/app/login']);
   }
-  profile() {
-    this.router.navigate(['/cobro/user']);
-  }
+
   security() {
 
   }
